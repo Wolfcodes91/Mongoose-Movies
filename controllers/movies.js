@@ -19,6 +19,9 @@ function create(req, res) {
   // remove leading and trailing spaces
   req.body.cast = req.body.cast.trim();
   if (req.body.cast) req.body.cast = req.body.cast.split(/\s*,\s*/);
+  for (let key in req.body) {
+      if (req.body[key] === '') delete req.body[key];
+  }
   const movie = new Movie(req.body);
   movie.save(function(err) {
     // one way to handle errors
