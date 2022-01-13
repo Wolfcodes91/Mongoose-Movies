@@ -8,5 +8,7 @@ var moviesCtrl = require('../controllers/movies');
 router.get('/new', moviesCtrl.new);
 // POST /movies
 router.post('/', moviesCtrl.create);
+// GET /movies
+router.get('/', moviesCtrl.index);
 
 module.exports = router;
